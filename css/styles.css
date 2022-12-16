@@ -1,0 +1,355 @@
+/* Custom properties */
+:root {
+    /* Fuentes */
+    --fuenteHeading: 'PT Sans' sans-serif;
+    --fuenteParrafos: 'Open Sans' sans-serif;
+
+    /* Colores */
+    --primario: #784D3C;
+    --gris: #E1E1E1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+
+html {
+    box-sizing: border-box;
+    /* 1rem = 10px */
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/* Globales */
+.contenedor {
+    /* max-width: 120rem;
+    width: 90%; */
+    /* Hace lo mismo que las dos lineas anteriores de codigo, propiedad nueva que toma dos valores
+    aplica el valor que sea minimo de esos dos */
+    width: min(90%, 120rem);
+    /* top and bottom | left and right */
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fuenteHeading);
+    /* Baja un poco el interlineado para otros dispositivos */
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Utilidades */
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+/* Header */
+
+/* Si el navegador soporta webp se carga la imagen en formate webp */
+.webp .header {
+    background-image: url(../img/banner.webp);
+}
+
+/* Si no lo soporta se carga la imagen con jpg */
+.no-webp .header {
+    background-image: url(../img/banner.jpg);
+}
+
+.header {
+    background-image: url(../img/banner.jpg);
+    height: 60rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* En este caso toma dos valores, primero horizontalmente y luego verticalmente */
+    background-position: center center;
+}
+
+.header__texto {
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+    .header__texto {
+        margin-top: 15rem;
+    }
+}
+
+.barra {
+    padding-top: 4rem;
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        /* Lo  ajusta horizontalmente con un espacio enmedio */
+        justify-content: space-between;
+        /* Lo ajusta veritcalmente de manera central */
+        align-items: center;
+    }
+}
+
+.logo {
+    color: var(--blanco);
+}
+
+.logo__nombre {
+    font-weight: normal;
+}
+
+.logo__bold {
+    font-weight: bold;
+}
+
+/* Navegacion */
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.navegacion__enlace {
+    /* Coloca los elementos uno debajo del otro */
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+/* Contenido principal */
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        /* Primero de 3 partes se toman 2 y luego solo 1 */
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+/* Blog */
+.entrada {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+
+/* Al ultimo article con la clase entrada  */
+.entrada:last-of-type {
+    /* Se le quite el borde */
+    border: none;
+    /* Se le quita el margen de abajo */
+    margin-bottom: 0;
+}
+
+/* Botones */
+.boton {
+    display: block;
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        /* Cuando se coloca inline solamente, no respeta los margenes ni el width, pero 
+        cuando se le coloca un inline-block se puede acceder a estas dos ultimas propiedades */
+        display: inline-block;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.boton--primario {
+    background-color: var(--negro);
+}
+
+.boton--secundario {
+    background-color: var(--primario);
+}
+
+/* Cursos de index.html */
+.cursos {
+    /* Quita las viñetas de la lista */
+    list-style: none;
+}
+
+.widget-curso{
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+
+.widget-curso:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+
+.widget-curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+
+.widget-curso__info {
+    font-weight: normal;
+}
+
+.widget-curso__label,
+.widget-curso__info {
+    font-size: 2rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--negro);
+    padding-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+/* Sobre nosotros de nosotros.html */
+@media (min-width: 768px) {
+    /* .sobre-nosotros {
+        display: flex;
+        gap: 2rem;
+
+        Si un dispositivo no soporta el gap se hace de la siguiente forma 
+        justify-content: space-between;
+    }
+    .sobre-nostros__imagen,
+    .sobre-nosotros__texto {
+        /* Toma el 50% 
+        flex-basis: 50%;
+    } */
+
+    .sobre-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+/* Cursos de cursos.html */
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+@media (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.curso:last-of-type {
+    border: none;
+}
+
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+
+.curso__info {
+    font-weight: normal;
+}
+
+.curso__label,
+.curso__info {
+    font-size: 2rem;
+}
+
+/* Contacto de contacto.html */
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Contacto de contacto.html */
+.formulario {
+    background-color: var(--blanco);
+    /* Hacia arriba 5px, auto en la derecha, hacia abajo 0, izquierda auto */
+    margin: -20rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+    border-radius: 3rem;
+}
+
+.campo {
+    /* Se accede al shorthand de flex */
+    display: flex;
+    margin-bottom: 2rem;
+    /* gap: 2rem; */
+}
+
+.campo__label {
+    /* 0 de factor de crecimiento, 0 de que se haga pequeño y de base de width 9rem */
+    flex: 0 0 9rem;
+    text-align: right;
+    /* Lo mismo que el gap de 2rem */
+    padding-right: 2rem;
+}
+
+.campo__field {
+    /* Factor de crecimiento de 1, como el anterior tiene factor de crecimiento de 0, por cada 0px que recibe este recibe 1
+    Es decir que todo lo que quede disponible de pixeles lo va a tomar el field  */
+    flex: 1;
+    border: 1px solid var(--gris);
+}
+
+.campo__field--textarea {
+    height: 20rem;
+}
